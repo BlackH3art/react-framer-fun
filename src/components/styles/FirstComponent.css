@@ -1,0 +1,5 @@
+div.First-container {
+  background: radial-gradient(circle, var(--my-1st) 0%, rgba(40,44,52,1) 77%);
+  flex-grow: 1;
+  width: 100%;
+}
