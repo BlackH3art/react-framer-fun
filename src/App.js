@@ -9,6 +9,7 @@ import FourthComponent from './components/FourthComponent';
 import FifthComponent from './components/FifthComponent';
 
 
+import 'bootstrap/dist/css/bootstrap.css';
 import './App.css';
 
 function App() {

@@ -28,3 +28,7 @@ a {
   text-decoration: none;
   color: white;
 }
+button {
+  outline: none;
+  user-select: none;
+}

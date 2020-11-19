@@ -19,6 +19,8 @@ ul.main-nav {
 }
 ul.main-nav a {
   flex-grow: 1;
+  color: white;
+  text-decoration: none;
 }
 ul.main-nav a li {
   display: flex;
@@ -26,6 +28,7 @@ ul.main-nav a li {
   justify-content: center;
   flex-grow: 1;
   height: 100%;
+  transition: .3s;
 }
 
 ul.main-nav a:nth-child(1) li {
@@ -42,5 +45,13 @@ ul.main-nav a:nth-child(4) li {
 }
 ul.main-nav a:nth-child(5) li {
   background-color: var(--my-5th);
+}
+
+ul.main-nav a.li-active li {
+  background-color: rgb(57, 173, 194);
+}
+
+ul.main-nav a li:hover {
+  background-color: rgb(52, 154, 172);
 }
 

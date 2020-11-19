@@ -2,4 +2,7 @@ div.Fourth-container {
   background: radial-gradient(circle, var(--my-4th) 0%, rgba(40,44,52,1) 77%);
   flex-grow: 1;
   width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
