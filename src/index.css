@@ -4,6 +4,9 @@
   --my-3rd: #7F89A3;
   --my-4th: #ABB8DB;
   --my-5th: #C5D4FC;
+
+  --my-hover: #349aac;
+  --my-active: #39adc2;
 }
 
 body {

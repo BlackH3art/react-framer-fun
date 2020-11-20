@@ -48,10 +48,10 @@ ul.main-nav a:nth-child(5) li {
 }
 
 ul.main-nav a.li-active li {
-  background-color: rgb(57, 173, 194);
+  background-color: var(--my-active);
 }
 
 ul.main-nav a li:hover {
-  background-color: rgb(52, 154, 172);
+  background-color: var(--my-hover);
 }
 

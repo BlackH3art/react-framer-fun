@@ -6,3 +6,37 @@ div.Third-container {
   justify-content: center;
   align-items: center;
 }
+
+div.todo-container {
+  background-color: var(--my-1st);
+  border-radius: 20px;
+  display: flex;
+  height: 600px;
+  width: 50%;
+  font-size: 1rem;
+}
+
+/* --------------- InputComponent ------------------ */
+
+div.input-container {
+  /* background-color: red; */
+  flex-basis: 60%;
+  height: 50px;
+  margin: 30px auto
+}
+
+div.input-container form {
+  display: flex;
+  justify-content: space-around;
+
+}
+
+input {
+  outline: none;
+  border-radius: 7px;
+  padding: 6px 10px;
+  flex-basis: 80%;
+  background-color: rgba(255, 255, 255, 0.85);
+  /* flex-grow: 1; */
+  
+}
