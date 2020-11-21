@@ -11,6 +11,8 @@ div.todo-container {
   background-color: var(--my-1st);
   border-radius: 20px;
   display: flex;
+  align-items: center;
+  flex-direction: column;
   height: 600px;
   width: 50%;
   font-size: 1rem;
@@ -19,16 +21,14 @@ div.todo-container {
 /* --------------- InputComponent ------------------ */
 
 div.input-container {
-  /* background-color: red; */
-  flex-basis: 60%;
+  width: 60%;
   height: 50px;
-  margin: 30px auto
+  margin: 30px auto;
 }
 
 div.input-container form {
   display: flex;
   justify-content: space-around;
-
 }
 
 input {
@@ -37,6 +37,59 @@ input {
   padding: 6px 10px;
   flex-basis: 80%;
   background-color: rgba(255, 255, 255, 0.85);
-  /* flex-grow: 1; */
   
+}
+
+/* --------------- ListComponent --------------------- */
+
+div.list-container {
+  width: 80%;
+  height: 200px;
+}
+
+div.ul-container {
+  display: flex;
+}
+
+ul.todo-list {
+  display: flex;
+  width: 100%;
+  flex-direction: column;
+}
+
+ul.todo-list li {
+  display: grid;
+  grid-template-columns: 60% 40%;
+  grid-template-rows: 12px 40px;
+  grid-template-areas: 
+  "todo date"
+  "todo button";
+
+  height: 52px;
+  width: 100%;
+  border-bottom: 1px solid var(--my-4th);
+  margin-bottom: 5px;
+}
+
+ul.todo-list li p {
+  grid-area: todo;
+  margin: auto 0;
+}
+
+ul.todo-list li span {
+  grid-area: date;
+  font-size: 10px;
+  text-align: right;
+}
+
+ul.todo-list li div.action-buttons-container {
+  grid-area: button;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+div.action-buttons-container button {
+  margin-bottom: 4px;
+  margin-right: 2px;
 }

@@ -11,7 +11,8 @@ export default function reducer(store, action) {
       }
     case DELETE_TODO: 
       return {
-
+        ...store,
+        todos: store.todos.filter(item => item !== action.payload)
       }
     default: 
       return store || initialData

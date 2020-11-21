@@ -15,6 +15,7 @@ const InputComponent = () => {
     let item = Array(inputValue);
 
     dispatch(addTodo(item));
+    setInputValue('');
   }
 
   const handleChange = (e) => {
