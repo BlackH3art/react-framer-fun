@@ -2,6 +2,8 @@
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import { Provider } from 'react-redux';
 import store from './components/store';
+import StoreProvider from './components/contex store/StoreProvider';
+
 
 import Header from './components/Header';
 import FirstComponent from './components/FirstComponent';
@@ -25,7 +27,11 @@ function App() {
             <Route path="/first" component={FirstComponent}/>
             <Route path="/second" component={SecondComponent}/>
             <Route path="/third" component={ThirdComponent}/>
-            <Route path="/fourth" component={FourthComponent}/>
+
+            <StoreProvider>
+              <Route path="/fourth" component={FourthComponent}/>
+            </StoreProvider>
+
             <Route path="/fifth" component={FifthComponent}/>
 
           </div>

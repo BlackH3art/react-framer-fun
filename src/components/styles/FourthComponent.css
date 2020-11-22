@@ -6,3 +6,19 @@ div.Fourth-container {
   justify-content: center;
   align-items: center;
 }
+
+/* ------------- login Panel -------------- */
+
+div.login-panel {
+  height: 75px;
+  width: 50%;
+  align-self: flex-start;
+  font-size: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+label input {
+  margin: 0 10px;
+}
