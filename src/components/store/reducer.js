@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO} from './actionCreators';
+import { ADD_TODO, DELETE_TODO, SEND_FORM_DATA } from './actionCreators';
 import { initialData } from './initialData';
 
 export default function reducer(store, action) {
@@ -13,6 +13,11 @@ export default function reducer(store, action) {
       return {
         ...store,
         todos: store.todos.filter(item => item !== action.payload)
+      }
+    case SEND_FORM_DATA: 
+      return {
+        ...store,
+        form: action.payload
       }
     default: 
       return store || initialData

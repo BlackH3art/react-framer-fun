@@ -32,7 +32,7 @@ const ListComponent = () => {
         <AnimatePresence>
           <AnimateSharedLayout>
             <div className="ul-container">
-              <motion.ul layout className="todo-list">
+              <motion.ul className="todo-list">
 
                 {todoArray.map((item, i) => ( 
                   <motion.li variants={{ 
