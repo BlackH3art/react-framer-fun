@@ -1,4 +1,4 @@
-import { ADD_TODO, DELETE_TODO, SEND_FORM_DATA } from './actionCreators';
+import { ADD_TODO, DELETE_TODO, SEND_FORM_DATA, SEND_FORM_ERROR } from './actionCreators';
 import { initialData } from './initialData';
 
 export default function reducer(store, action) {

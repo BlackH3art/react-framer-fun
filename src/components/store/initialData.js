@@ -13,5 +13,5 @@ export const initialData = {
     checkbox2: false,
     date: '',
     time: ''
-  }
+  }, 
 }

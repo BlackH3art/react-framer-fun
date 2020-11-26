@@ -6,6 +6,7 @@ import { useDispatch } from 'react-redux';
 import { sendFormData } from './store/actionCreators';
 
 import './styles/FifthComponent.css';
+import errors from './store/validationMiddleware';
 
 const FifthComponent = () => {
 
@@ -15,7 +16,7 @@ const FifthComponent = () => {
     email: '',
     number: '',
     checkbox1: false,
-    checkbox2: true,
+    checkbox2: false,
     date: '',
     time: ''
   })
@@ -40,6 +41,16 @@ const FifthComponent = () => {
   const handleSubmit = (e) => {
     e.preventDefault()
     dispatch(sendFormData(formState))
+
+    setFormState({
+      text: '',
+      email: '',
+      number: '',
+      checkbox1: false,
+      checkbox2: false,
+      date: '',
+      time: ''
+    })
   }
   
   return ( 
@@ -51,17 +62,18 @@ const FifthComponent = () => {
             <label>
               my input
             </label>
-            <input name="text" type="text" onChange={handleOnChange}/>
+            <input name="text" type="text" value={formState.text} onChange={handleOnChange}/>
+            <p>{JSON.stringify(errors)}</p>
 
             <label>
               my email input
             </label>
-            <input name="email" type="text" onChange={handleOnChange}/>
+            <input name="email" type="text" value={formState.email} onChange={handleOnChange}/>
 
             <label>
               my number input
             </label>
-            <input name="number" type="number" onChange={handleOnChange}/>
+            <input name="number" type="number" value={formState.number} onChange={handleOnChange}/>
 
             <label>
               my checkbox input
@@ -76,12 +88,12 @@ const FifthComponent = () => {
             <label>
               my date input
             </label>
-            <input name="date" type="date" onChange={handleOnChange}/>
+            <input name="date" type="date" value={formState.date} onChange={handleOnChange}/>
 
             <label>
               my time input
             </label>
-            <input name="time" type="time" onChange={handleOnChange}/>
+            <input name="time" type="time" value={formState.time} onChange={handleOnChange}/>
 
             <div className="submit-button-container">
               <button className="btn btn-outline-light" type="submit">send to redux</button>
