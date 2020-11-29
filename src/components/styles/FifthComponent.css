@@ -25,8 +25,9 @@ div.form-container form {
 
 div.form-container form label {
   display: flex;
-  justify-content: flex-end;
-  align-items: center;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
   margin-right: 20px;
 }
 
@@ -48,4 +49,10 @@ div.submit-button-container {
 
 div.submit-button-container button { 
   margin: 10px 20px;
+}
+
+p.validate-error {
+  color: red;
+  font-size: 10px;
+  margin: 0 0;
 }
