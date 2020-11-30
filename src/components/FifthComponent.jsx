@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion, AnimateSharedLayout} from 'framer-motion'
 import { useDispatch } from 'react-redux';
 
 
@@ -42,6 +43,17 @@ const FifthComponent = () => {
     e.preventDefault()
     dispatch(sendFormData(formState))
 
+    // Object.keys(errors).forEach(field => {
+    //   const formStateToUpdate = errors[field].length 
+    //     ? { ...formState } 
+    //     : { ...formState, [field]: formState[field] === false ? false : ''}
+      
+    //   setFormState(formStateToUpdate)
+    // })
+
+
+    // prevent reseting all input values if there are any errors
+
     setFormState({
       text: '',
       email: '',
@@ -59,53 +71,56 @@ const FifthComponent = () => {
         <div className="form-container">
           <form onSubmit={handleSubmit}>
 
-            <label>
-              my input
-              {errors.text ? <p className="validate-error">{errors.text}</p> : null}
-            </label>
-            <input name="text" type="text" value={formState.text} onChange={handleOnChange}/>
+            <AnimateSharedLayout>
 
-            <label>
-              my email input
-              {errors.email ? <p className="validate-error">{errors.email}</p> : null}
-            </label>
-            <input name="email" type="text" value={formState.email} onChange={handleOnChange}/>
+              <motion.label layout>
+                my input
+                {errors.text ? <motion.p layout className="validate-error">{errors.text}</motion.p> : null}
+              </motion.label>
+              <input className={errors.text.length === 1 ? "invalid-input" : null} name="text" type="text" value={formState.text} onChange={handleOnChange}/>
 
-            <label>
-              my number input
-              {errors.number ? <p className="validate-error">{errors.number}</p> : null}
-            </label>
-            <input name="number" type="number" value={formState.number} onChange={handleOnChange}/>
+              <motion.label layout>
+                my email input
+                {errors.email ? <motion.p layout className="validate-error">{errors.email}</motion.p> : null}
+              </motion.label>
+              <input className={errors.email.length === 1 ? "invalid-input" : null} name="email" type="text" value={formState.email} onChange={handleOnChange}/>
 
-            <label>
-              my checkbox input
-              {errors.checkbox1 ? <p className="validate-error">{errors.checkbox1}</p> : null}
-            </label>
-            <input name="checkbox1" className="checkbox" type="checkbox" onChange={handleCheckbox} checked={formState.checkbox1} />
+              <motion.label layout>
+                my number input
+                {errors.number ? <motion.p layout className="validate-error">{errors.number}</motion.p> : null}
+              </motion.label>
+              <input className={errors.number.length === 1 ? "invalid-input" : null} name="number" type="number" value={formState.number} onChange={handleOnChange}/>
 
-            <label>
-              my checkbox input2
-              {errors.checkbox2 ? <p className="validate-error">{errors.checkbox2}</p> : null}
-            </label>
-            <input name="checkbox2" className="checkbox" type="checkbox" onChange={handleCheckbox} checked={formState.checkbox2} />
+              <motion.label layout>
+                my checkbox input
+                {errors.checkbox1 ? <motion.p layout className="validate-error">{errors.checkbox1}</motion.p> : null}
+              </motion.label>
+              <input className={errors.checkbox1.length === 1 ? "invalid-input checkbox" : "checkbox"} name="checkbox1" type="checkbox" onChange={handleCheckbox} checked={formState.checkbox1} />
 
-            <label>
-              my date input
-              {errors.date ? <p className="validate-error">{errors.date}</p> : null}
-            </label>
-            <input name="date" type="date" value={formState.date} onChange={handleOnChange}/>
+              <motion.label layout>
+                my checkbox input2
+                {errors.checkbox2 ? <motion.p layout className="validate-error">{errors.checkbox2}</motion.p> : null}
+              </motion.label>
+              <input className={errors.checkbox2.length === 1 ? "invalid-input checkbox" : "checkbox"} name="checkbox2" type="checkbox" onChange={handleCheckbox} checked={formState.checkbox2} />
 
-            <label>
-              my time input
-              {errors.time ? <p className="validate-error">{errors.time}</p> : null}
-            </label>
-            <input name="time" type="time" value={formState.time} onChange={handleOnChange}/>
+              <motion.label layout>
+                my date input
+                {errors.date ? <motion.p layout className="validate-error">{errors.date}</motion.p> : null}
+              </motion.label>
+              <input className={errors.date.length === 1 ? "invalid-input" : null} name="date" type="date" value={formState.date} onChange={handleOnChange}/>
 
-            <div className="submit-button-container">
-              <button className="btn btn-outline-light" type="submit">send to redux</button>
-              <button className="btn btn-outline-light"> send to validate </button>
-            </div>
-            
+              <motion.label layout>
+                my time input
+                {errors.time ? <motion.p layout className="validate-error">{errors.time}</motion.p> : null}
+              </motion.label>
+              <input className={errors.time.length === 1 ? "invalid-input" : null} name="time" type="time" value={formState.time} onChange={handleOnChange}/>
+
+              <div className="submit-button-container">
+                <button className="btn btn-outline-light" type="submit">send to redux</button>
+                <button className="btn btn-outline-light"> send to validate </button>
+              </div>
+              
+            </AnimateSharedLayout>
 
           </form>
         </div>
