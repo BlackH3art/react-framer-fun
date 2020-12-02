@@ -1,10 +1,10 @@
-import React, { useState } from 'react';
+import React, {  useState } from 'react';
 import { motion, AnimateSharedLayout} from 'framer-motion'
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 
 
 
-import { sendFormData } from './store/actionCreators';
+import { sendFormData, receivedForm } from './store/actionCreators';
 
 import './styles/FifthComponent.css';
 import errors from './store/validationMiddleware';
@@ -12,6 +12,8 @@ import errors from './store/validationMiddleware';
 const FifthComponent = () => {
 
   const dispatch = useDispatch()
+  const received = useSelector(state => state.formSent)
+
   const [formState, setFormState] = useState({
     text: '',
     email: '',
@@ -21,6 +23,7 @@ const FifthComponent = () => {
     date: '',
     time: ''
   })
+  // const [errorsState, setErrorsState] = useState(errors)
 
 
   const handleOnChange = (e) => {
@@ -43,26 +46,29 @@ const FifthComponent = () => {
     e.preventDefault()
     dispatch(sendFormData(formState))
 
-    // Object.keys(errors).forEach(field => {
-    //   const formStateToUpdate = errors[field].length 
-    //     ? { ...formState } 
-    //     : { ...formState, [field]: formState[field] === false ? false : ''}
-      
-    //   setFormState(formStateToUpdate)
-    // })
-
-
+    // this is ugly, but it works
+    let arewegood = errors.text.length === 0 && errors.email.length === 0 && errors.number.length === 0 && errors.checkbox1.length === 0 && errors.checkbox2.length === 0 && errors.date.length === 0 && errors.time.length === 0 ;
+    
     // prevent reseting all input values if there are any errors
+    if (arewegood) {
+      setFormState({
+        text: '',
+        email: '',
+        number: '',
+        checkbox1: false,
+        checkbox2: false,
+        date: '',
+        time: ''
+      })
 
-    setFormState({
-      text: '',
-      email: '',
-      number: '',
-      checkbox1: false,
-      checkbox2: false,
-      date: '',
-      time: ''
-    })
+      dispatch(receivedForm(true))
+
+    } else {
+      setFormState({...formState})
+      dispatch(receivedForm(false))
+    }
+
+
   }
   
   return ( 
@@ -117,7 +123,6 @@ const FifthComponent = () => {
 
               <div className="submit-button-container">
                 <button className="btn btn-outline-light" type="submit">send to redux</button>
-                <button className="btn btn-outline-light"> send to validate </button>
               </div>
               
             </AnimateSharedLayout>

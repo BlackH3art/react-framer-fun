@@ -14,4 +14,5 @@ export const initialData = {
     date: '',
     time: ''
   }, 
+  formSent: false
 }
