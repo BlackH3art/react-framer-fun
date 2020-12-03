@@ -1,5 +1,5 @@
 import validator from 'validator';
-import { SEND_FORM_DATA } from './actionCreators';
+import { SEND_FORM_DATA, ADD_TODO } from './actionCreators';
 
 let errors = {
   text: [],
@@ -10,6 +10,8 @@ let errors = {
   date: [],
   time: []
 };
+
+export const todoErrors = [];
 
 let errorList = [];
 
@@ -97,6 +99,22 @@ export const validation = ({ dispatch, getState }) => next => action => {
     } else {
       return errorList.splice(0);
     }
+
+  } else if(action.type === ADD_TODO) {
+
+
+    const [todoItem] = action.payload
+    let errormsg = '';
+
+
+    if(validator.isEmpty(todoItem)) {
+      errormsg = 'How can todo item be empty?!';
+      todoErrors.push(errormsg);
+      return 
+    } else {
+      return next(action);
+    }
+
 
   } else {
     return next(action)

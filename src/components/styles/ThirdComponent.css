@@ -40,6 +40,13 @@ input {
   
 }
 
+div.input-container form div {
+  width: 100%;
+}
+div.input-container form div input {
+  width: 100%;
+}
+
 /* --------------- ListComponent --------------------- */
 
 div.list-container {
